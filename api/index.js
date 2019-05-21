@@ -1,15 +1,19 @@
 // Require the framework and instantiate it
 const fastify = require('fastify')({ logger: true });
 const teamController = require('./controllers/team');
+const userController = require('./controllers/user');
 
-// TODO: POST /teams
 fastify.post('/teams', teamController.create);
 
-// TODO: GET /teams
 fastify.get('/teams', teamController.getAll);
 
-// TODO: DELETE /teams/:teamId
-fastify.get('/teams/:teamId', teamController.delete);
+fastify.delete('/teams/:teamId', teamController.delete);
+
+fastify.get('/teams/:teamId/users', userController.getUsersOfTeam);
+
+fastify.post('/teams/:teamId/users', userController.create);
+
+fastify.delete('/teams/users/:userId', userController.delete);
 
 // Run the server!
 const start = async () => {
