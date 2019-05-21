@@ -1,7 +1,7 @@
-// Require the framework and instantiate it
 const fastify = require('fastify')({ logger: true });
 const teamController = require('./controllers/team');
 const userController = require('./controllers/user');
+const watcherController = require('./controllers/watcher');
 
 fastify.post('/teams', teamController.create);
 
@@ -15,14 +15,15 @@ fastify.post('/teams/:teamId/users', userController.create);
 
 fastify.delete('/teams/users/:userId', userController.delete);
 
-// Run the server!
+fastify.get('/watchers', watcherController.getWatchers);
+
 const start = async () => {
     try {
         await fastify.listen(3000)
         fastify.log.info(`server listening on ${fastify.server.address().port}`)
     } catch (err) {
-        fastify.log.error(err)
-        process.exit(1)
+        fastify.log.error(err);
+        process.exit(1);
     }
 };
-start()
+start();
