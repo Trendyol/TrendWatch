@@ -1,11 +1,13 @@
 const { Bucket, Cluster } = require('couchbase');
 
 class Couchbase {
-  constructor(props) {
+  constructor(props = {}) {
     this.host = props.host || process.env.COUCHBASE_HOST;
     this.dbUsername = props.username || process.env.COUCHBASE_USERNAME;
     this.dbPassword = props.password || process.env.COUCHBASE_PASSWORD;
     this.bucketName = props.bucket || process.env.COUCHBASE_BUCKET;
+
+    this.connect = this.connect.bind(this);
   }
 
   connect() {

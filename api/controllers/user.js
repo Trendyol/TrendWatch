@@ -1,4 +1,4 @@
-const userService = require('../services/user');
+const { userService } = require('../db');
 
 module.exports.getUsersOfTeam =  async (request, reply) => {
     const users = await userService.getUsersOfTeam(request.params.teamId);

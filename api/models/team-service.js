@@ -21,6 +21,18 @@ class TeamService {
         });
     }
 
+    deleteTeam(name) {
+        return new Promise((resolve, reject) => {
+            this.couchbase.bucket.delete(`team_${name.toLowerCase()}`, (err) => {
+                if (err) {
+                    reject();
+                } else {
+                    resolve();
+                }
+            });
+        });
+    }
+
     async getAllTeams() {
         const query = ViewQuery
             .from('teams', 'getAll')
