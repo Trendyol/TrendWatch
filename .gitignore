@@ -61,3 +61,4 @@ typings/
 .next
 db_demo.js
 .DS_Store
+.idea
