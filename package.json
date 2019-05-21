@@ -1,0 +1,23 @@
+{
+  "name": "trendwatch",
+  "version": "1.0.0",
+  "description": "TrenWatch",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Trendyol/TrendWatch.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Trendyol/TrendWatch/issues"
+  },
+  "homepage": "https://github.com/Trendyol/TrendWatch#readme",
+  "dependencies": {
+    "fastify": "^2.3.0",
+    "yarn": "^1.16.0"
+  }
+}
